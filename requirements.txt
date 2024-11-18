@@ -1,0 +1,6 @@
+ipykernel
+matplotlib
+pandas
+pyarrow
+scikit-learn
+union
