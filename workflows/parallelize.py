@@ -11,8 +11,8 @@ image = union.ImageSpec(packages=["pandas", "pyarrow", "scikit-learn"])
 
 @dataclass
 class Hyperparameters:
-    max_iter: int
-    hidden_layer_sizes: list[int] = field(default_factory=lambda: [100])
+    max_iter: int = 100
+    hidden_layer_sizes: list[int] = field(default_factory=lambda: [100, 100])
 
 
 @union.task(container_image=image)

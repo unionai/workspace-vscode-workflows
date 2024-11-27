@@ -28,7 +28,7 @@ def train_model(max_iter: int, hidden_layer_sizes: list[int], data: pd.DataFrame
 
 @union.workflow
 def training_workflow(
-    max_iter: int = 50,
+    max_iter: int = 100,
     hidden_layer_sizes: list[int] = [100, 100],
 ) -> MLPClassifier:
     """Put all of the steps together into a single workflow."""
