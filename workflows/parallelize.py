@@ -1,4 +1,4 @@
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from functools import partial
 
 import union
@@ -11,7 +11,8 @@ image = union.ImageSpec(packages=["pandas", "pyarrow", "scikit-learn"])
 
 @dataclass
 class Hyperparameters:
-    hidden_layer_sizes: list[int]
+    max_iter: int
+    hidden_layer_sizes: list[int] = field(default_factory=lambda: [100])
 
 
 @union.task(container_image=image)

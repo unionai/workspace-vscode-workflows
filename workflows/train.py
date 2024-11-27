@@ -17,16 +17,16 @@ def get_data() -> pd.DataFrame:
 
 
 @union.task(container_image=image)
-def train_model(data: pd.DataFrame) -> MLPClassifier:
+def train_model(max_iter: int, data: pd.DataFrame) -> MLPClassifier:
     """Train a model on the wine dataset."""
     print("Training model")
     features = data.drop("target", axis="columns")
     target = data["target"]
-    return MLPClassifier().fit(features, target)
+    return MLPClassifier(max_iter=max_iter).fit(features, target)
 
 
 @union.workflow
-def training_workflow() -> MLPClassifier:
+def training_workflow(max_iter: int = 1000) -> MLPClassifier:
     """Put all of the steps together into a single workflow."""
     data = get_data()
-    return train_model(data)
+    return train_model(max_iter, data)
