@@ -6,7 +6,7 @@ import pandas as pd
 from sklearn.neural_network import MLPClassifier
 
 
-image = union.ImageSpec(packages=["flytekit>=1.14.0", "pandas", "pyarrow", "scikit-learn"])
+image = union.ImageSpec(packages=["pandas", "pyarrow", "scikit-learn"])
 
 
 @dataclass
