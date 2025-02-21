@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.neural_network import MLPClassifier
 
 
-image = union.ImageSpec(packages=["pandas", "pyarrow", "scikit-learn"])
+image = union.ImageSpec(packages=["pandas", "pyarrow", "scikit-learn"], builder="union")
 
 
 @union.task(container_image=image)
